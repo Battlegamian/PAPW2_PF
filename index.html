@@ -1,9 +1,152 @@
-<html>
-<head>
-	<title></title>
-	<script src="js/bootstrap.min.js"></script>
-</head>
-<body>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">    
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
 
+		<link rel="icon" href="imagenes/logo.ico" type="image/x-icon" />
+		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="icomoon/style.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<title>proyPAPW</title>
+	</head>
+<body>
+	
+	<header class="head">
+		<div class="container-fluid">
+			<div class="head-cont">
+				<button class="menu-btn" data-state="0"><span class="icon-menu"></span></button>
+				<a class="logo-cont" href="#"><img class="logo" src="imagenes/logo.png"></img></a>
+			</div>
+		</div>
+	</header>
+	
+	<div class="menu-cont">
+		<div class="menu">
+			<div class="cont-menu">
+				<div class="search-cont">
+					<input class="search" type="text" name="">
+					<button class="search-btn"><span class="icon-magnifying-glass"></span></button>
+				</div>
+				<button class="menu-option pop-open"><span class="icon-star"></span> Abre el pop</button>
+				<a class="menu-option" href="#">Opcion</a>
+				<button class="menu-option"><span class="icon-star"></span> Otra opcion</button>
+				<div class="drop" data-state="0" data-child="0">
+					<span class="drop-title">C++<span class="icon-chevron-right"></span></span>
+					<div class="drop-options">
+						<a class="drop-option" href="#">Drop Opcion</a>
+						<a class="drop-option" href="#">Drop Opcion</a>
+						<a class="drop-option" href="#">Drop Opcion</a>
+						<a class="drop-option" href="#">Drop Opcion</a>
+					</div>
+				</div>
+				<div class="drop" data-state="0" data-child="0">
+					<span class="drop-title">Java<span class="icon-chevron-right"></span></span>
+					<div class="drop-options">
+						<a class="drop-option" href="#">Drop Opcion</a>
+						<a class="drop-option" href="#">Drop Opcion</a>
+						<a class="drop-option" href="#">Drop Opcion</a>
+						<a class="drop-option" href="#">Drop Opcion</a>
+					</div>
+				</div>
+				<div class="drop" data-state="0" data-child="0">
+					<span class="drop-title">MySQL<span class="icon-chevron-right"></span></span>
+					<div class="drop-options">
+						<a class="drop-option" href="#">Drop Opcion</a>
+						<a class="drop-option" href="#">Drop Opcion</a>
+						<a class="drop-option" href="#">Drop Opcion</a>
+						<a class="drop-option" href="#">Drop Opcion</a>
+						<div class="drop" data-state="0" data-child="0">
+							<span class="drop-title">MySQL<span class="icon-chevron-right"></span></span>
+							<div class="drop-options">
+								<a class="drop-option" href="#">Drop Opcion</a>
+								<a class="drop-option" href="#">Drop Opcion</a>
+								<a class="drop-option" href="#">Drop Opcion</a>
+								<a class="drop-option" href="#">Drop Opcion</a>
+								<div class="drop" data-state="0" data-child="0">
+									<span class="drop-title">MySQL<span class="icon-chevron-right"></span></span>
+									<div class="drop-options">
+										<a class="drop-option" href="#">Drop Opcion</a>
+										<a class="drop-option" href="#">Drop Opcion</a>
+										<a class="drop-option" href="#">Drop Opcion</a>
+										<a class="drop-option" href="#">Drop Opcion</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="drop" data-state="0" data-child="0">
+					<span class="drop-title">C#<span class="icon-chevron-right"></span></span>
+					<div class="drop-options">
+						<a class="drop-option" href="#">Drop Opcion</a>
+						<a class="drop-option" href="#">Drop Opcion</a>
+						<a class="drop-option" href="#">Drop Opcion</a>
+						<a class="drop-option" href="#">Drop Opcion</a>
+						<div class="drop" data-state="0" data-child="0">
+							<span class="drop-title">C#<span class="icon-chevron-right"></span></span>
+							<div class="drop-options">
+								<a class="drop-option" href="#">Drop Opcion</a>
+								<a class="drop-option" href="#">Drop Opcion</a>
+								<a class="drop-option" href="#">Drop Opcion</a>
+								<a class="drop-option" href="#">Drop Opcion</a>
+								<div class="drop" data-state="0" data-child="0">
+									<span class="drop-title">C#<span class="icon-chevron-right"></span></span>
+									<div class="drop-options">
+										<a class="drop-option" href="#">Drop Opcion</a>
+										<a class="drop-option" href="#">Drop Opcion</a>
+										<a class="drop-option" href="#">Drop Opcion</a>
+										<a class="drop-option" href="#">Drop Opcion</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="cont-user">
+				<a href="#">Iniciar sesión</a>
+			</div>
+		</div>
+		<div class="menu-close"></div>
+	</div>
+
+	<div class="pop-cont">
+		<div class="pop">
+			<span class="icon-cross pop-close"></span>
+			Pop up de prueba
+		</div>
+	</div>
+
+	<div class="wrapper">
+		<div class="container">
+			<div class="content">
+				<div class="video"><img class="img-vid" src="imagenes/novideo.jpg">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+				<div class="video"><img class="img-vid" src="imagenes/novideo.jpg"></div>
+				<div class="video"><img class="img-vid" src="imagenes/novideo.jpg"></div>
+				<div class="video"><img class="img-vid" src="imagenes/novideo.jpg">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est <laborum class=""></laborum></div>
+				<div class="video"><img class="img-vid" src="imagenes/novideo.jpg"></div>
+				<div class="video"><img class="img-vid" src="imagenes/novideo.jpg"></div>
+				<div class="video"><img class="img-vid" src="imagenes/novideo.jpg"></div>
+				<div class="video"><img class="img-vid" src="imagenes/novideo.jpg"></div>
+			</div>
+		</div>
+	</div>	
+
+
+	<script src="js/jquery.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+	<script src="js/main.js"></script>
 </body>
 </html>
