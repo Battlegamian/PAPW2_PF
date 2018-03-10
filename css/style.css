@@ -88,7 +88,15 @@ body
 }
 .logo-cont
 {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -moz-box;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-moz-box-align: center;
+	-ms-flex-align: center;
 	align-items: center;
 	margin: 0px 0px 0px 25px;
 	width: auto;
@@ -449,6 +457,8 @@ body
 .pop
 {
 	padding: 18px 5px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	width: 500px;
 	height: 400px;
@@ -502,6 +512,8 @@ body
 .form-log
 {
 	padding: 20px 5px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	width: 320px;
 	height: auto;
@@ -511,6 +523,9 @@ body
 	-webkit-box-shadow: 0px 0px 5px 0px #524C4C;
 	box-shadow: 0px 0px 5px 0px #524C4C;
 	position: relative;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
 	user-select: none;
 	overflow-y: auto;
 }
@@ -567,6 +582,8 @@ body
 .form-reg
 {
 	padding: 10px 5px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	width: 320px;
 	height: auto;
@@ -577,6 +594,9 @@ body
 	-webkit-box-shadow: 0px 0px 5px 0px #524C4C;
 	box-shadow: 0px 0px 5px 0px #524C4C;
 	position: relative;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
 	user-select: none;
 	overflow-y: auto;
 }
