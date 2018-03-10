@@ -2,6 +2,13 @@ $(document).ready(function(){
 
 	var inDrops = false;
 	var inPop = false;
+	var inForm = false;
+
+/************************************************/
+/************************************************/
+/**********************MENU**********************/
+/************************************************/
+/************************************************/
 
 	function openMenu(){
 		$(".menu-btn").data("state", 1);
@@ -29,12 +36,28 @@ $(document).ready(function(){
 		closeMenu();
 		closeDrops();
 	});
+	$(window).resize(function(){
+		closeMenu();
+		closeDrops();
+	});
+
+/*********************************************************/
+/*********************************************************/
+/**********************SCROLL EFFECT**********************/
+/*********************************************************/
+/*********************************************************/
 
 	$(window).scroll(function(){
 		var scroll_top = $(this).scrollTop();
 		var back_position = scroll_top * 0.25;
 		$(".wrapper").css("background-position", "0px " + back_position + "px");
 	});
+
+/*************************************************/
+/*************************************************/
+/**********************DROPS**********************/
+/*************************************************/
+/*************************************************/
 
 	function closeDrops()
 	{
@@ -112,6 +135,12 @@ $(document).ready(function(){
 		}
 	});
 
+/**************************************************/
+/**************************************************/
+/**********************POP-UP**********************/
+/**************************************************/
+/**************************************************/
+
 	$(".pop-open").click(function(){
 		$(".pop-cont").css("display", "flex");
 	});
@@ -129,7 +158,66 @@ $(document).ready(function(){
 	});
 
 	$(".pop-cont").click(function(){
-		if(inPop === false)
+		if(inForm === false)
+		{
+			$(this).css("display", "none");
+		}
+	});
+
+/******************************************************/
+/******************************************************/
+/**********************FORM LOGIN**********************/
+/******************************************************/
+/******************************************************/
+
+	$(".form-log-open").click(function(){
+		$(".form-log-cont").css("display", "flex");
+	});
+
+	$(".form-log-close").click(function(){
+		$(".form-log-cont").css("display", "none");
+	});
+
+	$(".form-log").mouseenter(function(){
+		inForm = true;
+	});
+
+	$(".form-log").mouseleave(function(){
+		inForm = false;
+	});
+
+	$(".form-log-cont").click(function(){
+		if(inForm === false)
+		{
+			$(this).css("display", "none");
+		}
+	});
+
+/****************************************************/
+/****************************************************/
+/**********************FORM REG**********************/
+/****************************************************/
+/****************************************************/
+
+	$(".form-reg-open").click(function(){
+		$(".form-log-cont").css("display", "none");
+		$(".form-reg-cont").css("display", "flex");
+	});
+
+	$(".form-reg-close").click(function(){
+		$(".form-reg-cont").css("display", "none");
+	});
+
+	$(".form-reg").mouseenter(function(){
+		inForm = true;
+	});
+
+	$(".form-reg").mouseleave(function(){
+		inForm = false;
+	});
+
+	$(".form-reg-cont").click(function(){
+		if(inForm === false)
 		{
 			$(this).css("display", "none");
 		}

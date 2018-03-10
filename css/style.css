@@ -54,6 +54,7 @@ body
 	align-items: center;
 	width: 100%;
 	height: 50px;
+	position: relative;
 }
 .menu-btn
 {
@@ -87,16 +88,39 @@ body
 }
 .logo-cont
 {
-	display: block;
+	display: flex;
+	align-items: center;
 	margin: 0px 0px 0px 25px;
 	width: auto;
 	height: 90%;
+}
+.logo-cont:hover
+{
+	text-decoration: none !important;
+}
+.logo-cont:link
+{
+	text-decoration: none !important;
+}
+.logo-cont:visited
+{
+	text-decoration: none !important;
 }
 .logo
 {
 	height: 100%;
 }
-
+.name
+{
+	margin: 0px 0px 0px 10px;
+	color: #CCCCCC;
+}
+.avatar
+{
+	height: 100%;
+	position: absolute;
+	right: 5px;
+}
 
 /************************************************/
 /************************************************/
@@ -131,7 +155,7 @@ body
 .cont-menu
 {
 	width: 250px;
-	height: 80%;
+	height: 75%;
 	border-style: solid;
 	border-width: 0px 0px 1px 0px;
 	border-color: #CCCCCC;
@@ -273,7 +297,7 @@ body
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	width: 250px;
-	height: auto;
+	height: 20%;
 }
 
 
@@ -444,11 +468,137 @@ body
 	right: 0;
 	cursor: pointer;
 }
+.form-log-cont
+{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: none;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-flow: row wrap;
+	-moz-box-orient: horizontal;
+	-moz-box-direction: normal;
+	-ms-flex-flow: row wrap;
+	flex-flow: row wrap;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-moz-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-moz-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.75);
+	position: fixed;
+	top: 0;
+	z-index: 101;
+}
+.form-log
+{
+	padding: 20px 5px;
+	box-sizing: border-box;
+	width: 320px;
+	height: auto;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	background-color: #FFFFFF;
+	-webkit-box-shadow: 0px 0px 5px 0px #524C4C;
+	box-shadow: 0px 0px 5px 0px #524C4C;
+	position: relative;
+	user-select: none;
+	overflow-y: auto;
+}
+.form-log-close
+{
+	display: block;
+	font-size: 18px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	cursor: pointer;
+}
+.form-log-title
+{
+	margin-bottom: 10px;
+	text-align: center;
+}
+.form-log-reg
+{
+	display: block;
+	margin-top: 10px;
+}
+.form-reg-cont
+{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: none;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-flow: row wrap;
+	-moz-box-orient: horizontal;
+	-moz-box-direction: normal;
+	-ms-flex-flow: row wrap;
+	flex-flow: row wrap;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-moz-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-moz-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.75);
+	position: fixed;
+	top: 0;
+	z-index: 101;
+}
+.form-reg
+{
+	padding: 10px 5px;
+	box-sizing: border-box;
+	width: 320px;
+	height: auto;
+	max-height: 100%;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	background-color: #FFFFFF;
+	-webkit-box-shadow: 0px 0px 5px 0px #524C4C;
+	box-shadow: 0px 0px 5px 0px #524C4C;
+	position: relative;
+	user-select: none;
+	overflow-y: auto;
+}
+.form-reg-close
+{
+	display: block;
+	font-size: 18px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	cursor: pointer;
+}
+.form-reg-title
+{
+	margin-bottom: 10px;
+	text-align: center;
+}
 
 
 /***************************************************/
 /***************************************************/
-/**********************WRAPPER**********************/
+/**********************CONTENT**********************/
 /***************************************************/
 /***************************************************/
 
@@ -520,6 +670,53 @@ body
 	width: 100%;
 	height: auto;
 }
+.title-vid
+{
+	display: block;
+	width: 100%;
+	height: auto;
+	font-size: 24px;
+	color: #555555;
+}
+.desc-vid
+{
+	display: block;
+	width: 100%;
+	height: auto;
+	font-size: 16px;
+	color: #555555;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*@media screen and (max-width: 1199px) 
 {
 	.content
