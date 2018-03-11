@@ -26,7 +26,10 @@ body
 {
 	width: 100%;
 	height: auto;
-	background-color: #433f3e;
+	//background-color: #433f3e;
+	background-color: #3399ff;
+	padding-top: 5px;
+	padding-bottom: 5px;
 	-webkit-box-shadow: 0px 0px 5px 0px #2E2B2A;
 	box-shadow: 0px 0px 5px 0px #2E2B2A;
 	position: fixed;
