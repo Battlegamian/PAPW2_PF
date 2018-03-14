@@ -158,7 +158,7 @@ $(document).ready(function(){
 	});
 
 	$(".pop-cont").click(function(){
-		if(inForm === false)
+		if(inPop === false)
 		{
 			$(this).css("display", "none");
 		}
