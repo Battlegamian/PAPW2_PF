@@ -26,9 +26,7 @@ body
 {
 	width: 100%;
 	height: auto;
-	padding: 5px;
-	//background-color: #433f3e;
-	background-color: #3366ff;
+	background-color: #433f3e;
 	-webkit-box-shadow: 0px 0px 5px 0px #2E2B2A;
 	box-shadow: 0px 0px 5px 0px #2E2B2A;
 	position: fixed;
@@ -66,13 +64,12 @@ body
 	box-sizing: border-box;
 	width: auto;
 	height: auto;
-	border: 1px solid #6699ff;
+	border: 1px solid #2E2B2A;
 	-webkit-border-radius: 5px;
 	border-radius: 5px;
-	//background-color: #433f3e;
-	background-color: #55aaff; //change
-	-webkit-box-shadow: 0px 0px 5px 0px #3366ff;
-	box-shadow: 0px 0px 5px 0px #3366ff;
+	background-color: #433f3e;
+	-webkit-box-shadow: 0px 0px 5px 0px #2E2B2A;
+	box-shadow: 0px 0px 5px 0px #2E2B2A;
 	outline: none;
 }
 .menu-btn > span
@@ -132,7 +129,6 @@ body
 	position: absolute;
 	top: 0px;
 	right: 5px;
-	padding: 3px;
 }
 
 /************************************************/
@@ -157,8 +153,7 @@ body
 }
 .menu
 {
-	//margin-top: 50px;
-	margin-top: 63px;
+	margin-top: 50px;
 	width: 0px;
 	height: 100%;
 	background-color: #FFFFFF;
@@ -637,14 +632,13 @@ body
 	width: 100%;
 	height: auto;
 	min-height: 100%;
-	// background-image: url("../imagenes/patterns/pat08.png");
-	background-color: #f0f0ff;
+	background-image: url("../imagenes/patterns/pat08.png");
 	background-attachment: fixed;
 }
 .content
 {
 	margin: 50px auto;
-	padding: 15px;
+	padding: 5px;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
@@ -654,10 +648,8 @@ body
 	-webkit-border-radius: 5px;
 	border-radius: 5px;
 	background-color: #FFFFFF;
-	//-webkit-box-shadow: 0px 0px 5px 0px #524C4C;
-	//box-shadow: 0px 0px 5px 0px #524C4C;
-	  -webkit-box-shadow: 0px 0px 2px 0px #aaaaaa;
-	  box-shadow: 0px 0px 2px 0px #aaaaaa;
+	-webkit-box-shadow: 0px 0px 5px 0px #524C4C;
+	box-shadow: 0px 0px 5px 0px #524C4C;
 	-webkit-column-width: 250px;
 	-moz-column-width: 250px;
 	column-width: 250px;
@@ -680,7 +672,7 @@ body
 	width: 100%;
 	-webkit-border-radius: 5px;
 	border-radius: 5px;
-	//-webkit-box-shadow: 0px 0px 5px 0px #AAAAAA;
+	-webkit-box-shadow: 0px 0px 5px 0px #AAAAAA;
 	box-shadow: 0px 0px 5px 0px #AAAAAA;
 	-webkit-column-break-inside:avoid;
 	-moz-column-break-inside:avoid;
