@@ -89,6 +89,11 @@ function prepare_file_inputs()
 	$('.file-container input:file').on('change', function(event){ $(this).siblings().val(event.target.files[0].name); });
 }
 
+function prepare_file_btn_inputs()
+{
+	$('.btn-input-file-container button').on('click', function(){ $(this).siblings('input:file').trigger('click'); });
+}
+
 var in_popup = false;
 
 function close_all_popups(element)
@@ -139,5 +144,6 @@ $(document).ready(function(){
 	transition_effect();
 	fill_date();
 	prepare_file_inputs();
+	prepare_file_btn_inputs();
 	prepare_popups();
 });

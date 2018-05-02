@@ -8,7 +8,7 @@
 		<link rel='icon' href='images/icon.ico' type='image/x-icon' />
 		<link rel='stylesheet' type='text/css' href='css/bootstrap.min.css'>
 		<link rel='stylesheet' type='text/css' href='icomoon/style.css'>
-		<link rel='stylesheet' type='text/css' href='css/main.css?a=7'>
+		<link rel='stylesheet' type='text/css' href='css/main.css'>
 		<title>principal</title>
 	</head>
 	<body>
@@ -200,5 +200,5 @@
 	</body>
 	<script type='text/javascript' src='js/jquery.js'></script>
 	<script type='text/javascript' src='js/bootstrap.min.js'></script>
-	<script type='text/javascript' src='js/main.js?a=3'></script>
+	<script type='text/javascript' src='js/main.js'></script>
 </html>

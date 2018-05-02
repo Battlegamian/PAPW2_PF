@@ -8,7 +8,7 @@
 		<link rel='icon' href='images/icon.ico' type='image/x-icon' />
 		<link rel='stylesheet' type='text/css' href='css/bootstrap.min.css'>
 		<link rel='stylesheet' type='text/css' href='icomoon/style.css'>
-		<link rel='stylesheet' type='text/css' href='css/main.css?a=3'>
+		<link rel='stylesheet' type='text/css' href='css/main.css'>
 		<title>Administrador</title>
 	</head>
 	<body>
@@ -91,7 +91,16 @@
 				<div class='row'>
 					<div class='col-xs-12 col-sm-12 col-md-12'>
 						<div class='background-user' style="background-image: url('images/transition/img(0)-min.jpeg');">
-							<div class='profile-user' style="background-image: url('images/nullProfile.png');"></div>
+							<div class='profile-user' style="background-image: url('images/nullProfile.png');">
+								<form id='photo-profile-change' class='btn-input-file-container btn-input-file-center' enctype='multipart/form-data'>
+									<input type='file' name='photo' hidden>
+									<button type='button'><span class='icon-edit'></span></button>
+								</form>
+							</div>
+							<form id='photo-background-change' class='btn-input-file-container btn-input-file-right' enctype='multipart/form-data'>
+								<input type='file' name='photo' hidden>
+								<button type='button'><span class='icon-edit'></span></button>
+							</form>
 						</div>
 					</div>
 					<div class='col-xs-12 col-sm-12 col-md-12'>
@@ -373,5 +382,5 @@
 	</body>
 	<script type='text/javascript' src='js/jquery.js'></script>
 	<script type='text/javascript' src='js/bootstrap.min.js'></script>
-	<script type='text/javascript' src='js/main.js?a=1'></script>
+	<script type='text/javascript' src='js/main.js'></script>
 </html>
