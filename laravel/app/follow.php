@@ -1,9 +1,0 @@
-<?php namespace tutostube;
-
-use Illuminate\Database\Eloquent\Model;
-
-class follow extends Model {
-
-	protected $table = 'follow';
-
-}

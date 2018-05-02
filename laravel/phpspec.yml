@@ -1,5 +1,0 @@
-suites:
-    main:
-        namespace: tutostube
-        psr4_prefix: tutostube
-        src_path: app
