@@ -13,17 +13,17 @@
 
 Route::get('/', 'landingController@index');
 
-Route::get('/principal', 'mainController@index');
+Route::get('/principal', 'mainController@index_get');
+
+Route::resource('/busqueda', 'mainController@index_post');
 
 Route::get('/perfil', 'userController@index');
 
-Route::get('/canal', 'channelController@index');
+Route::get('/canal/{id}', 'channelController@index')->where('id', '[0-9]+');
 
-Route::get('/view', 'viewController@index');
+Route::get('/view/{id}/{order}', 'viewController@index')->where(['id' => '[0-9]+', 'order' => '[0-1]']);
 
 Route::get('/admin', 'adminController@index');
-
-// Route::get('/GetTransitionImgs', 'landingController@getImages');
 
 Route::get('/GetTransitionImgs', function(){
 	if(Request::ajax())
@@ -40,3 +40,33 @@ Route::get('/GetTransitionImgs', function(){
 		echo json_encode($imgs);
 	}
 });
+
+Route::resource('/login', 'userController@login');
+
+Route::resource('/logout', 'userController@logout');
+
+Route::resource('/register', 'userController@register');
+
+Route::resource('/change_profile', 'userController@change_profile');
+
+Route::resource('/change_background', 'userController@change_background');
+
+Route::resource('/upload_video', 'viewController@uploadvideo');
+
+Route::resource('/like', 'viewController@like');
+
+Route::resource('/fav', 'viewController@fav');
+
+Route::resource('/follow', 'userController@follow');
+
+Route::resource('/comment', 'viewController@comment');
+
+Route::resource('/banvideo', 'viewController@banvideo');
+
+Route::resource('/removebanvideo', 'viewController@removebanvideo');
+
+Route::resource('/banuser', 'channelController@banuser');
+
+Route::resource('/removebanuser', 'channelController@removebanuser');
+
+

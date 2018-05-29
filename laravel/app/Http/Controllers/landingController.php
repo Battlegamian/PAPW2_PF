@@ -14,24 +14,23 @@ class landingController extends Controller {
 	 */
 	public function index()
 	{
-		return view('index');
-	}
-
-	public function getImages()
-	{
-		if(Request::ajax())
+		// return view('index');
+		session_start();
+		if(isset($_SESSION['user_session']))
 		{
-			$directory = $_GET['dir'];
-			$open_directory = opendir($directory);
-			$imgs = array();
-			while(($img = readdir($open_directory)))
+			$user_type = $_SESSION['user_session']['type'];
+			if($user_type = 1)
 			{
-				$imgs[] = $img;
+				return redirect('admin');
 			}
-			unset($imgs[0]);
-			unset($imgs[1]);
-			echo json_encode($imgs);
+			else
+			{
+				return redirect('user');
+			}
+		}
+		else
+		{
+			return view('index');
 		}
 	}
-
 }

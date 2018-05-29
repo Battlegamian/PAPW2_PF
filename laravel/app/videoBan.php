@@ -6,4 +6,7 @@ class videoBan extends Model {
 
 	protected $table = 'video_ban';
 
+	protected $fillable = ['id_video',
+						   'id_reason'];
+
 }

@@ -12,7 +12,41 @@ class DatabaseSeeder extends Seeder {
 	 */
 	public function run()
 	{
-		Model::unguard();
+		// DB::table('user')->insert(
+		// 	['name' => 'Samuel',
+		// 	 'last_name' => 'Sosa',
+		// 	 'email' => 'zamuelzoza@hotmail.com',
+		// 	 'password' => '1234',
+		// 	 'birth_date' => '1998/08/21',
+		// 	 'photo_profile' => null,
+		// 	 'photo_background' => null,
+		// 	 'type' => '1',
+		// 	 'active' => '1']
+		// );
+
+		// DB::table('video_type')->insert(
+		// 	[
+		// 		'type' => 'Cartón'
+		// 	],
+		// 	[
+		// 		'type' => 'Tela'
+		// 	],
+		// 	[
+		// 		'type' => 'Madera'
+		// 	],
+		// 	[
+		// 		'type' => 'Plástico'
+		// 	],
+		// 	[
+		// 		'type' => 'Metal'
+		// 	],
+		// 	[
+		// 		'type' => 'Cosplay'
+		// 	]
+		// );
+
+
+		// Model::unguard();
 
 		// $this->call('UserTableSeeder');
 	}

@@ -1,6 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 	<head>
+		<meta name='csrf-token' content='{{ csrf_token() }}' />
 		<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>    
 		<meta http-equiv='X-UA-Compatible' content='IE=edge'>
 		<meta name='viewport' content='width=device-width, initial-scale=1'>
@@ -14,17 +15,19 @@
 	<body>
 
 		<div id='log' class='popup' data-state='0'>
-			<form id='login-form' class='popup-content'>
+			<form id='login-form' class='popup-content' action='#' data-state='0'>
 				<div class='log-container'><img src='images/log-v8.png'></div>
+				<div class='msg-request'></div>
 				<div class='inputs-container'>
 					<div class='form-group'>
 						<label for='mail'>Correo</label>
-						<input type='email' class='form-control' id='mail' name='mailUser' placeholder='Correo...' required>
+						<input type='hidden' name='_token' value='{{ csrf_token() }}'>
+						<input type='email' class='form-control' id='mail' name='email' placeholder='Correo...' required>
 					</div>
 					<br>
 					<div class='form-group'>
 						<label for='pass'>Contraseña</label>
-						<input type='password' class='form-control' id='pass' name='passUser' placeholder='Contraseña...' required>
+						<input type='password' class='form-control' id='pass' name='password' placeholder='Contraseña...' required>
 					</div>
 					<br>
 					<button type='submit' class='btn btn-primary'>Iniciar sesión</button>
@@ -34,11 +37,13 @@
 			</form>
 		</div>
 		<div id='reg' class='popup' data-state='0'>
-			<form id='register-form' class='popup-content' enctype='multipart/form-data'>
+			<form id='register-form' class='popup-content' action='#' enctype='multipart/form-data' data-state='0'>
 				<div class='log-container'><img src='images/log-v8.png'></div>
+				<div class='msg-request'></div>
 				<div class='inputs-container'>
 					<div class='form-group'>
 						<label for='name'>Nombre</label>
+						<input type='hidden' name='_token' value='{{ csrf_token() }}'>
 						<input id='name' name='name' type='text' class='form-control' placeholder='Nombre...' required>
 					</div>
 					<div class='form-group'>
@@ -70,14 +75,14 @@
 					<div class='form-group'>
 						<label for='photo_profile'>Foto de perfil</label>
 						<div class='file-container'>
-							<input type='text' class='form-control' placeholder='Foto de perfil...' readonly>
+							<input type='text' class='form-control' placeholder='Foto de perfil...'>
 							<input id='photo_profile' name='photo_profile' type='file' accept='image/x-png,image/gif,image/jpeg'>
 						</div>
 					</div>
 					<div class='form-group'>
 						<label for='photo_background'>Foto de portada</label>
 						<div class='file-container'>
-							<input type='text' class='form-control' placeholder='Foto de portada...' readonly>
+							<input type='text' class='form-control' placeholder='Foto de portada...'>
 							<input id='photo_background' name='photo_background' type='file' accept='image/x-png,image/gif,image/jpeg'>
 						</div>
 					</div>
@@ -96,7 +101,7 @@
 					<span class='icon-bar'></span>
 					<span class='icon-bar'></span> 
 					</button>
-					<a class='navbar-brand logo' href='#'><img src='images/log-v8.png'></a>
+					<a class='navbar-brand logo' href='/'><img src='images/log-v8.png'></a>
 				</div>
 				<div class='collapse navbar-collapse' id='menu-NavBar'>
 					<ul class='nav navbar-nav navbar-right'>
@@ -173,5 +178,5 @@
 	</body>
 	<script type='text/javascript' src='js/jquery.js'></script>
 	<script type='text/javascript' src='js/bootstrap.min.js'></script>
-	<script type='text/javascript' src='js/main.js'></script>
+	<script type='text/javascript' src='js/main.js?=10'></script>
 </html>

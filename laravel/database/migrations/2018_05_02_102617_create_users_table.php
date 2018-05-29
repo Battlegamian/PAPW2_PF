@@ -20,8 +20,8 @@ class CreateUsersTable extends Migration {
 			$table->string('email', 100);
 			$table->string('password', 500);
 			$table->date('birth_date');
-			$table->binary('photo_profile');
-			$table->binary('photo_background');
+			$table->binary('photo_profile')->nullable();;
+			$table->binary('photo_background')->nullable();;
 			$table->boolean('type');
 			$table->boolean('active');
 			$table->timestamps();

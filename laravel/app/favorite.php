@@ -6,4 +6,6 @@ class favorite extends Model {
 
 	protected $table = 'favorite';
 
+	protected $fillable = ['id_video',
+						   'id_user'];
 }

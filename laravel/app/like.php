@@ -6,4 +6,7 @@ class like extends Model {
 
 	protected $table = 'like';
 
+	protected $fillable = ['id_video',
+						   'id_user'];
+
 }

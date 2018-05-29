@@ -6,4 +6,7 @@ class userBan extends Model {
 
 	protected $table = 'user_ban';
 
+	protected $fillable = ['id_user',
+						   'id_reason'];
+
 }
