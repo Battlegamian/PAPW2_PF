@@ -23,9 +23,10 @@ class adminController extends Controller {
 				{
 					if($request['method'] == 0)
 					{
-						$bannedvideos = DB::table('video')->select('video.id as videoid', 'video.name as name', 'video_ban_reason.reason as reason', 'video_ban.created_at as date')
+						$bannedvideos = DB::table('video')->select('video.id as videoid', 'video.name as name', 'user.name as username', 'user.email as useremail', 'video_ban_reason.reason as reason', 'video_ban.created_at as date')
 						->join('video_ban', 'video_ban.id_video', '=', 'video.id')
-						->join('video_ban_reason', 'video_ban_reason.id', '=', 'video_ban.id_reason')->paginate(2);
+						->join('video_ban_reason', 'video_ban_reason.id', '=', 'video_ban.id_reason')
+						->join('user', 'user.id', '=', 'video.id_user')->paginate(2);
 
 						return response()->json(view('bannedvideos', compact('bannedvideos'))->render());
 					}
@@ -68,9 +69,10 @@ class adminController extends Controller {
 							$channels[] = $channel;
 						}
 					}
-					$bannedvideos = DB::table('video')->select('video.id as videoid', 'video.name as name', 'video_ban_reason.reason as reason', 'video_ban.created_at as date')
+					$bannedvideos = DB::table('video')->select('video.id as videoid', 'video.name as name', 'user.name as username', 'user.email as useremail', 'video_ban_reason.reason as reason', 'video_ban.created_at as date')
 					->join('video_ban', 'video_ban.id_video', '=', 'video.id')
-					->join('video_ban_reason', 'video_ban_reason.id', '=', 'video_ban.id_reason')->paginate(2);
+					->join('video_ban_reason', 'video_ban_reason.id', '=', 'video_ban.id_reason')
+					->join('user', 'user.id', '=', 'video.id_user')->paginate(2);
 
 					$bannedusers = DB::table('user')->select('user.id as userid', 'user.name as username', 'user.last_name as userlastname', 'user.email as email', 'user_ban_reason.reason as reason', 'user_ban.created_at as date')
 					->join('user_ban', 'user_ban.id_user', '=', 'user.id')

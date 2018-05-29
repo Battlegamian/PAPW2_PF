@@ -254,6 +254,8 @@
 				<tr>
 					<th>id</th>
 					<th>Nombre</th>
+					<th>Usuario</th>
+					<th>Correo</th>
 					<th>Ban</th>
 					<th>Fecha de ban</th>
 					<th>Opciones</th>
@@ -264,6 +266,8 @@
 				<tr>
 					<td>{{ $bannedvideo->videoid }}</td>
 					<td>{{ $bannedvideo->name }}</td>
+					<td>{{ $bannedvideo->username }}</td>
+					<td>{{ $bannedvideo->useremail }}</td>
 					<td>{{ $bannedvideo->reason }}</td>
 					<td>{{ $bannedvideo->date }}</td>
 					<td><input class='btn btn-primary remove-ban' type='button' data-value='{{ $bannedvideo->videoid }}' value='Quitar ban'></td>
