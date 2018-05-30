@@ -157,13 +157,13 @@
 		@foreach($sharedvideos as $sharedvideo)
 		<div class='col-xs-12 col-sm-4 col-md-3'>
 			<div class='video'>
-				<a class='video-img' href='/view/{{ $sharedvideo->id }}/0' style="background-image: url('data:image/jpeg;base64,{{ base64_encode($sharedvideo->photo) }}');">
+				<a class='video-img' href='/view/{{ $sharedvideo->videoid }}/0' style="background-image: url('data:image/jpeg;base64,{{ base64_encode($sharedvideo->videophoto) }}');">
 					<span class='icon-controller-play'></span>
 				</a>
 				<div class='video-info'>
-					<p class='video-title'>{{ $sharedvideo->name }}</p>
-					<p class='video-user'>Por: {{ $user->name }}</p>
-					<p class='video-video-info'><span class='icon-eye'></span> {{ $sharedvideo->views }}</p>
+					<p class='video-title'>{{ $sharedvideo->videoname }}</p>
+					<p class='video-user'>Por: {{ $user->name.' '.$user->last_name }}</p>
+					<p class='video-video-info'><span class='icon-eye'></span> {{ $sharedvideo->videoviews }} <span class='icon-message'></span> {{ $sharedvideo->countcomments  }}</p>
 				</div>
 			</div>
 		</div>
@@ -176,16 +176,16 @@
 <div role='tabpanel' id='favorites' class='tab-pane'>
 	<h3 class='divisor'>Favoritos</h3>
 	<div class='row'>
-		@foreach($favvideos as $index => $favvideo)
+		@foreach($favoritevideos as $favoritevideo)
 		<div class='col-xs-12 col-sm-4 col-md-3'>
 			<div class='video'>
-				<a class='video-img' href='/view/{{ $favvideo->id }}/0' style="background-image: url('data:image/jpeg;base64,{{ base64_encode($favvideo->photo) }}');">
+				<a class='video-img' href='/view/{{ $favoritevideo->videoid }}/0' style="background-image: url('data:image/jpeg;base64,{{ base64_encode($favoritevideo->videophoto) }}');">
 					<span class='icon-controller-play'></span>
 				</a>
 				<div class='video-info'>
-					<p class='video-title'>{{ $favvideo->name }}</p>
-					<p class='video-user'>Por: {{ $usersfavvideos[$index]->name }}</p>
-					<p class='video-video-info'><span class='icon-eye'></span> {{ $favvideo->views }}</p>
+					<p class='video-title'>{{ $favoritevideo->videoname }}</p>
+					<p class='video-user'>Por: {{ $favoritevideo->username.' '.$favoritevideo->userlastname }}</p>
+					<p class='video-video-info'><span class='icon-eye'></span> {{ $favoritevideo->videoviews }} <span class='icon-message'></span> {{ $favoritevideo->countcomments }}</p>
 				</div>
 			</div>
 		</div>

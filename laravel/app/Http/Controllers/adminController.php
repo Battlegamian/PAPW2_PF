@@ -43,21 +43,23 @@ class adminController extends Controller {
 				{
 					$user = \tutostube\user::where('id', $_SESSION['user_session']['id'])->first();
 					$videotypes = \tutostube\videoType::all();
-					$sharedvideos = \tutostube\video::where('id_user', $_SESSION['user_session']['id'])->where('active', 1)->get();
 
-					$favinfovs = \tutostube\favorite::where('id_user', $_SESSION['user_session']['id'])->get();
-					$favvideos = array();
-					$usersfavvideos = array();
-					foreach ($favinfovs as $favinfov) 
-					{
-						$favvideo = \tutostube\video::where('id', $favinfov->id_video)->where('active', 1)->first();
-						if($favvideo != null)
-						{
-							$userfavvideo = \tutostube\user::where('id', $favvideo->id_user)->first();
-							$favvideos[] = $favvideo;
-							$usersfavvideos[] = $userfavvideo;
-						}
-					}
+					$sharedvideos = DB::table('video')
+					->select('video.id as videoid', 'video.photo as videophoto', 'video.name as videoname', 'video.views as videoviews', DB::raw('COUNT(comments.id_video) as countcomments'))
+					->leftJoin('comments', 'video.id', '=', 'comments.id_video')
+					->where('video.active', 1)
+					->where('video.id_user', $_SESSION['user_session']['id'])
+					->groupBy('video.id')->get();
+
+					$favoritevideos = DB::table('video')
+					->join('favorite', 'favorite.id_video', '=', 'video.id')
+					->select('video.id as videoid', 'video.photo as videophoto', 'video.name as videoname', 'user.name as username', 'user.last_name as userlastname', 'video.views as videoviews', DB::raw('COUNT(comments.id_video) as countcomments'))
+					->leftJoin('comments', 'video.id', '=', 'comments.id_video')
+					->join('user', 'user.id', '=', 'video.id_user')
+					->where('video.active', 1)
+					->where('favorite.id_user', $_SESSION['user_session']['id'])
+					->where('user.active', 1)
+					->groupBy('video.id')->get();
 
 					$chaninfos = \tutostube\follow::where('id_follower', $user->id)->get();
 					$channels = array();
@@ -69,6 +71,7 @@ class adminController extends Controller {
 							$channels[] = $channel;
 						}
 					}
+
 					$bannedvideos = DB::table('video')->select('video.id as videoid', 'video.name as name', 'user.name as username', 'user.email as useremail', 'video_ban_reason.reason as reason', 'video_ban.created_at as date')
 					->join('video_ban', 'video_ban.id_video', '=', 'video.id')
 					->join('video_ban_reason', 'video_ban_reason.id', '=', 'video_ban.id_reason')
@@ -78,7 +81,7 @@ class adminController extends Controller {
 					->join('user_ban', 'user_ban.id_user', '=', 'user.id')
 					->join('user_ban_reason', 'user_ban_reason.id', '=', 'user_ban.id_reason')->paginate(2);
 
-					return view('admin', compact('user', 'videotypes', 'sharedvideos', 'favvideos', 'usersfavvideos', 'channels', 'bannedvideos', 'bannedusers'));
+					return view('admin', compact('user', 'videotypes', 'sharedvideos', 'favoritevideos', 'channels', 'bannedvideos', 'bannedusers'));
 				}
 			}
 		}

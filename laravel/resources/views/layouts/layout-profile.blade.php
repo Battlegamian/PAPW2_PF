@@ -46,7 +46,7 @@
 
 								@yield('channels')
 								
-								@yield('upload_video');
+								@yield('upload_video')
 								
 							</div>
 						</div>

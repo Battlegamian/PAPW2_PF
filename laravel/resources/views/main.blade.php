@@ -93,13 +93,13 @@
 			@foreach($videos as $video)
 				<div class='col-xs-12 col-sm-4 col-md-3'>
 					<div class='video'>
-						<a class='video-img' href='/view/{{ $video->videoid }}/0' style="background-image: url('data:image/jpeg;base64,{{ base64_encode($video->photo) }}');">
+						<a class='video-img' href='/view/{{ $video->videoid }}/0' style="background-image: url('data:image/jpeg;base64,{{ base64_encode($video->videophoto) }}');">
 							<span class='icon-controller-play'></span>
 						</a>
 						<div class='video-info'>
 							<p class='video-title'>{{ $video->videoname }}</p>
 							<p class='video-user'>Por: {{ $video->username.' '.$video->userlastname }}</p>
-							<p class='video-video-info'><span class='icon-eye'></span> {{ $video->views }}</p>
+							<p class='video-video-info'><span class='icon-eye'></span> {{ $video->videoviews }} <span class='icon-message'></span> {{ $video->countcomments }}</p>
 						</div>
 					</div>
 				</div>

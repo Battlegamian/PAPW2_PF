@@ -233,7 +233,7 @@ $(document).ready(function(){
 							else if(response.active == false)
 							{
 								$('#login-form .msg-request').css('display', 'block');
-								$('#login-form .msg-request').html('Cuenta temporalmente baneada');
+								$('#login-form .msg-request').html('Cuenta temporalmente suspendida');
 								setTimeout(function(){ $('#login-form .msg-request').css('display', 'none'); }, 5000);
 							login_form.data('state', 0);
 							}
@@ -440,7 +440,7 @@ $(document).ready(function(){
 							"<div class='video-info'>"+
 							"<p class='video-title'>" + response.title + "</p>"+
 							"<p class='video-user'>Por: " + response.user_name + "</p>"+
-							"<p class='video-video-info'><span class='icon-eye'></span> " + response.views + "</p>"+
+							"<p class='video-video-info'><span class='icon-eye'></span> " + response.views + " <span class='icon-message'></span> 0</p>"+
 							"</div>"+
 							"</div>"+
 							"</div>"

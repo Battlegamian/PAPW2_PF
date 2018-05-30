@@ -18,11 +18,13 @@ class mainController extends Controller {
 			//////////CUREENT USER LOGED
 			$activeuser = \tutostube\user::where('id', $_SESSION['user_session']['id'])->first();
 			//////////GET VIDEOS
-
-			$videos = DB::table('video')->select('video.id as videoid', 'video.name as videoname', 'views', 'photo', 'user.name as username', 'user.last_name as userlastname')
+			$videos = DB::table('video')
+			->select('video.id as videoid', 'video.photo as videophoto', 'video.name as videoname', 'user.name as username', 'user.last_name as userlastname', 'video.views as videoviews', DB::raw('COUNT(comments.id_video) as countcomments'))
+			->leftJoin('comments', 'video.id', '=', 'comments.id_video')
 			->join('user', 'user.id', '=', 'video.id_user')
 			->where('video.active', 1)
-			->where('user.active', 1)->paginate(8);
+			->where('user.active', 1)
+			->groupBy('video.id')->paginate(8);
 
 			return view('main', compact('search', 'search_type', 'activeuser', 'videos', 'channels'));
 		}
@@ -47,7 +49,8 @@ class mainController extends Controller {
 				if($request['start_day'] == null)
 				{
 					$videos = DB::table('video')
-					->select('video.id as videoid', 'video.name as videoname', 'views', 'photo', 'user.name as username', 'user.last_name as userlastname')
+					->select('video.id as videoid', 'video.photo as videophoto', 'video.name as videoname', 'user.name as username', 'user.last_name as userlastname', 'video.views as videoviews', DB::raw('COUNT(comments.id_video) as countcomments'))
+					->leftJoin('comments', 'video.id', '=', 'comments.id_video')
 					->join('user', 'user.id', '=', 'video.id_user')
 					->where('video.active', 1)
 					->where('user.active', 1)
@@ -55,7 +58,8 @@ class mainController extends Controller {
 						$query->where('video.name', 'like', '%'.$search.'%')
 						->orWhere('user.name', 'like', '%'.$search.'%')
 						->orWhere('user.last_name', 'like', '%'.$search.'%');
-					})->paginate(8);
+					})
+					->groupBy('video.id')->paginate(8);
 				}
 				else
 				{
@@ -63,15 +67,18 @@ class mainController extends Controller {
 					$end_date = date_create($request['end_year'].'/'.$request['end_month'].'/'.$request['end_day']);
 
 					$videos = DB::table('video')
-					->select('video.id as videoid', 'video.name as videoname', 'views', 'photo', 'user.name as username', 'user.last_name as userlastname', 'date')
+					->select('video.id as videoid', 'video.photo as videophoto', 'video.name as videoname', 'user.name as username', 'user.last_name as userlastname', 'video.views as videoviews', DB::raw('COUNT(comments.id_video) as countcomments'))
+					->leftJoin('comments', 'video.id', '=', 'comments.id_video')
 					->join('user', 'user.id', '=', 'video.id_user')
 					->where('video.active', 1)
 					->where('user.active', 1)
-					->whereBetween('date', [$start_date->format('y-m-d'), $end_date->format('y-m-d')])
+					->whereBetween('video.date', [$start_date->format('y-m-d'), $end_date->format('y-m-d')])
 					->where(function($query) use($search){
 						$query->where('video.name', 'like', '%'.$search.'%')
-						->orWhere('user.name', 'like', '%'.$search.'%');
-					})->paginate(8);
+						->orWhere('user.name', 'like', '%'.$search.'%')
+						->orWhere('user.last_name', 'like', '%'.$search.'%');
+					})
+					->groupBy('video.id')->paginate(8);
 				}
 			}
 			else

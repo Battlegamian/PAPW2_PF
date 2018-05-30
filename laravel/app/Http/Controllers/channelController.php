@@ -1,6 +1,7 @@
 <?php namespace tutostube\Http\Controllers;
 
 use tutostube\Http\Requests;
+use Illuminate\Support\Facades\DB;
 use tutostube\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
@@ -21,18 +22,24 @@ class channelController extends Controller {
 				//////////DATE
 				$datejoin = $userinfo->created_at->year.'/'.$userinfo->created_at->month.'/'.$userinfo->created_at->day;
 				//////////VIDEOS SHARED
-				$sharedvideos = \tutostube\video::where('id_user', $userinfo->id)->get();
+				$sharedvideos = DB::table('video')
+				->select('video.id as videoid', 'video.photo as videophoto', 'video.name as videoname', 'video.views as videoviews', DB::raw('COUNT(comments.id_video) as countcomments'))
+				->leftJoin('comments', 'video.id', '=', 'comments.id_video')
+				->where('video.active', 1)
+				->where('video.id_user', $userinfo->id)
+				->groupBy('video.id')->get();
+
 				//////////FAVORITE VIDEOS
-				$favinfovs = \tutostube\favorite::where('id_user', $userinfo->id)->get();
-				$favvideos = array();
-				$usersfavvideos = array();
-				foreach ($favinfovs as $favinfov) 
-				{
-					$favvideo = \tutostube\video::where('id', $favinfov->id_video)->first();
-					$userfavvideo = \tutostube\user::where('id', $favvideo->id_user)->first();
-					$favvideos[] = $favvideo;
-					$usersfavvideos[] = $userfavvideo;
-				}
+				$favoritevideos = DB::table('video')
+				->join('favorite', 'favorite.id_video', '=', 'video.id')
+				->select('video.id as videoid', 'video.photo as videophoto', 'video.name as videoname', 'user.name as username', 'user.last_name as userlastname', 'video.views as videoviews', DB::raw('COUNT(comments.id_video) as countcomments'))
+				->leftJoin('comments', 'video.id', '=', 'comments.id_video')
+				->join('user', 'user.id', '=', 'video.id_user')
+				->where('video.active', 1)
+				->where('favorite.id_user', $userinfo->id)
+				->where('user.active', 1)
+				->groupBy('video.id')->get();
+
 				//////////DID I GIVE FOLLOW
 				$foll = \tutostube\follow::where('id_follower', $activeuser->id)
 										  ->where('id_followed', $userinfo->id)->first();
@@ -46,7 +53,7 @@ class channelController extends Controller {
 				}
 				$banreasons = \tutostube\userBanReason::all();
 
-				return view('channel', compact('activeuser', 'userinfo', 'datejoin', 'sharedvideos', 'favvideos', 'usersfavvideos', 'foll', 'channels', 'banreasons'));
+				return view('channel', compact('activeuser', 'userinfo', 'datejoin', 'sharedvideos', 'favoritevideos', 'foll', 'channels', 'banreasons'));
 			}
 			else
 			{
