@@ -6,7 +6,7 @@
 		<meta http-equiv='X-UA-Compatible' content='IE=edge'>
 		<meta name='viewport' content='width=device-width, initial-scale=1'>
 
-		<link rel='icon' href='images/icon.ico' type='image/x-icon' />
+		<link rel='icon' href="{{ URL::asset('images/icon.ico') }}" type='image/x-icon' />
 		<link rel='stylesheet' type='text/css' href="{{ URL::asset('css/bootstrap.min.css') }}">
 		<link rel='stylesheet' type='text/css' href="{{ URL::asset('icomoon/style.css') }}">
 		<link rel='stylesheet' type='text/css' href="{{ URL::asset('css/main.css') }}">
